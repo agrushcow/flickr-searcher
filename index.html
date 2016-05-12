@@ -4,7 +4,8 @@
 	<meta charset="UTF-8">
 	<title>Flickr Searcher</title>
 	<link rel="stylesheet" type="text/css" href="css/style.css">
-	  <script src="https://code.angularjs.org/1.3.10/angular.js"></script>
+ 	 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.10/angular.js"></script>
+    	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.10/angular-animate.js"></script>
 	  <script type="text/javascript" src="js/main.js"></script>
 </head>
 <body ng-controller="flickrCtrl">
@@ -12,12 +13,14 @@
 		<section class="heading">
 			<h1>Flickr Searcher</h1>
 		</section>
-		<section class="search">
-			<input type="text" class="text" placeholder="Enter a tag to search for">
+		<form name="searchForm" class="search" ng-submit="searchFlickr(userInput)">
+			<input type="text" class="text" name="userInput" placeholder="Enter a tag to search for" ng-model="userInput" required>
 			<input type="submit" class="submit">
-			<div class="query">Searching for...</div>
-		</section>
+			<div class="query">{{ query  }}</div>
+		</form>
 		<section class="response">
+			<img ng-src="https://farm{{photo.farm}}.staticflickr.com/{{photo.server}}/{{photo.id}}_{{photo.secret}}.jpg" ng-repeat="photo in photos" class="photo">
+			<div ng-show="(photos).length == 0">No results</div>
 		</section>
 	</section>
 </body>
