@@ -50,7 +50,6 @@
 		opacity:1;
 		max-height:12em;
 	}
-  }
 } /*end of 320px screen*/
 
 @media screen and (min-width:480px)  { 
@@ -73,5 +72,9 @@
 @media screen and (min-width:750px) {
 	.ng-scope img {
 		width:30%;
+		height:15em;
+	}
+	.photo.ng-leave, .photo.ng-enter.ng-enter-active {
+		max-height:15em;
 	}
 }
